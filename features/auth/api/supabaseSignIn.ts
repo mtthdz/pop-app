@@ -6,23 +6,11 @@ import { UserSession } from "@/types/userSession";
  * Supabase SignUp | SignIn functionality
  * returns UserSession object
  */
-const pickSessionData = (data: any): UserSession => {
-  return {
-    id: data.user?.id,
-    email: data.user?.email,
-    access_token: data.session?.access_token,
-    refresh_token: data.session?.refresh_token,
-    expires_at: data.session?.expires_at,
-    expires_in: data.session?.expires_in,
-    error: null
-  };
-};
-
 export const supabaseSignIn = async ({
   userEmail,
   userPassword,
   actionType,
-}: supabaseUser) => {
+}: supabaseUser): Promise<UserSession> => {
   try {
     let data = null;
     let error = null;
@@ -45,17 +33,16 @@ export const supabaseSignIn = async ({
 
     if (error) throw new Error(error.message);
 
-    // return {
-    //   id: data.user?.id ?? null,
-    //   email: data.user?.email ?? null,
-    //   access_token: data.session?.access_token ?? null,
-    //   refresh_token: data.session?.refresh_token ?? null,
-    //   expires_at: data.session?.expires_at ?? null,
-    //   expires_in: data.session?.expires_in ?? null,
-    //   error: null
-    // }
-    return pickSessionData(data);
-
+    // force undefined values to null (as per interface)
+    return {
+      id: data.user?.id ?? null,
+      email: data.user?.email ?? null,
+      access_token: data.session?.access_token ?? null,
+      refresh_token: data.session?.refresh_token ?? null,
+      expires_at: data.session?.expires_at ?? null,
+      expires_in: data.session?.expires_in ?? null,
+      error: null
+    }
   } catch (error) {
     throw new Error((error as Error).message);
   }
