@@ -5,7 +5,7 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import { supabaseSignIn } from "@/features/auth/api/supabaseSignIn";
 import { getUserMeta } from "@/features/user/api/getUserMeta";
 import { authSignIn } from "@/store/actions/authActions";
-import { reduxDispatch } from "@/store/types/reduxHooks";
+import { reduxDispatch } from "@/types/reduxHooks";
 import { userMetaAdd } from "@/store/actions/userMetaActions";
 
 export default function SignIn() {

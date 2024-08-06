@@ -1,4 +1,4 @@
-import { reduxSelect } from "@/store/types/reduxHooks";
+import { reduxSelect } from "@/types/reduxHooks";
 import { Redirect, Stack } from "expo-router";
 
 export default function AppLayout() {

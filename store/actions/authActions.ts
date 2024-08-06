@@ -1,4 +1,4 @@
-import { ReduxError } from '@/store/types/reduxActions';
+import { ReduxError } from '@/types/reduxActions';
 import { UserSession } from '@/types/userSession';
 
 interface AuthReducer extends UserSession {}
