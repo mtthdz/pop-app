@@ -1,6 +1,8 @@
-import { UsermetaReducerType } from "@/store/types/usermetaReducer";
+import { UserMeta } from "@/types/userMeta";
 
-const initialState: UsermetaReducerType = {
+interface UserMetaReducer extends UserMeta {}
+
+const initialState: UserMetaReducer = {
   id: null,
   user_name: null,
   first_name: null,
@@ -11,7 +13,7 @@ const initialState: UsermetaReducerType = {
 };
 
 // TODO: type the reducer action
-const usermetaReducer = (state = initialState, action: any) => {
+const userMetaReducer = (state = initialState, action: any) => {
   switch (action.type) {
     case 'USERMETA_ADD':
     case 'USERMETA_UPDATE':
@@ -38,4 +40,4 @@ const usermetaReducer = (state = initialState, action: any) => {
   }
 };
 
-export default usermetaReducer;
+export default userMetaReducer;

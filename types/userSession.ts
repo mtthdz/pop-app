@@ -1,5 +1,6 @@
-export type AuthReducerType = {
-  uid: null | string;
+// Used both in Supabase API Auth and Auth Reducer
+export interface UserSession {
+  id: null | string;
   email: null | string;
   access_token: null | string;
   refresh_token: null | string;

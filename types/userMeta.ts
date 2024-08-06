@@ -1,4 +1,5 @@
-export type UsermetaReducerType = {
+// Used both in Supabase API Auth and UserMeta Reducer
+export interface UserMeta {
   id: null | string;
   user_name: null | string;
   first_name: null | string;

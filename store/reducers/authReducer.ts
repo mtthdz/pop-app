@@ -1,7 +1,9 @@
-import { AuthReducerType } from '@/store/types/authReducer';
+import { UserSession } from "@/types/userSession";
 
-const initialState: AuthReducerType = {
-  uid: null,
+interface AuthReducer extends UserSession {}
+
+const initialState: AuthReducer = {
+  id: null,
   email: null,
   access_token: null,
   refresh_token: null,
