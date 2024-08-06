@@ -1,33 +1,58 @@
-import { authSignIn } from "@/store/actions/authActions";
-import { reduxDispatch } from "@/store/types/reduxHooks";
+import { useEffect, useState } from "react";
 import { router } from "expo-router";
 import { Text, TouchableOpacity } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
+import { supabaseSignIn } from "@/features/auth/api/supabaseSignIn";
+import { getUserMeta } from "@/features/user/api/getUserMeta";
+import { authSignIn } from "@/store/actions/authActions";
+import { reduxDispatch } from "@/store/types/reduxHooks";
+import { userMetaAdd } from "@/store/actions/userMetaActions";
 
 export default function SignIn() {
-  const dispatch = reduxDispatch();
-  const testData = {
-    uid: '123r1c12xe12e1x',
-    email: 'matt@mtthdz.com',
-    access_token: '2c1x1152310o12wh',
-    refresh_token: '0951j24c102941xd23123',
-    expires_at: 214151231,
-    expires_in: 12341231,
-    error: null,
+  const [error, setError]               = useState<string | null>(null);
+  const [loading, setLoading]           = useState<boolean>(false);
+  const [userEmail, setUserEmail]       = useState('matt@mtthdz.com');
+  const [userPassword, setUserPassword] = useState('pop');
+  const dispatch                        = reduxDispatch();
+
+  /**
+   * 1. authorizes user 
+   * 2. grabs metadata
+   * 3. redirects
+   */
+  const signIn = async (
+    userEmail: string,
+    userPassword: string,
+    actionType: 'signin' | 'signup'
+  ) => {
+    try {
+      setLoading(true);
+   
+      let sessionData = await supabaseSignIn({ userEmail, userPassword, actionType });
+      let userMeta    = await getUserMeta(sessionData.id);
+      dispatch(authSignIn(sessionData))
+      dispatch(userMetaAdd(userMeta))
+
+      router.replace('/');
+
+      setLoading(false);
+    } catch (error) {
+      setLoading(false);
+      setError((error as Error).message);
+    }
   }
 
   return (
     <SafeAreaView>
       <Text>pop</Text>
       <TouchableOpacity
-        onPress={() => {
-          console.log('hello', testData)
-          dispatch(authSignIn(testData));
-          router.replace('/');
-        }}
+        onPress={() => signIn(userEmail, userPassword, 'signin')}
       >
         <Text>Sign In</Text>
       </TouchableOpacity>
+      { error ? (
+        <Text>{error}</Text>
+      ) : null }
     </SafeAreaView>
   )
 }
