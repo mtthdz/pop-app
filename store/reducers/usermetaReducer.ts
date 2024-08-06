@@ -4,10 +4,10 @@ interface UserMetaReducer extends UserMeta {}
 
 const initialState: UserMetaReducer = {
   id: null,
+  user_first: null,
+  user_last: null,
   user_name: null,
-  first_name: null,
-  last_name: null,
-  bio: null,
+  user_bio: null,
   user_picture: null,
   error: null,
 };
