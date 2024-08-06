@@ -8,7 +8,7 @@ import errorReducer from './errorReducer';
 const rootPersistConfig = {
   key: 'root',
   storage: AsyncStorage,
-  whitelist: ['auth', 'usermeta'],
+  whitelist: ['auth', 'userMeta'],
 };
 
 const rootReducer = combineReducers({
