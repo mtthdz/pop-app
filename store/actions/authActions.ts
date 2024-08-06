@@ -1,11 +1,13 @@
-import { AuthReducerType } from '@/store/types/authReducer';
 import { ReduxError } from '@/store/types/reduxActions';
+import { UserSession } from '@/types/userSession';
 
-export const authSignIn = (payload: AuthReducerType) => {
+interface AuthReducer extends UserSession {}
+
+export const authSignIn = (payload: AuthReducer) => {
   return { type: 'AUTH_SIGN_IN', payload };
 };
 
-export const authSignUp = (payload: AuthReducerType) => {
+export const authSignUp = (payload: AuthReducer) => {
   return { type: 'AUTH_SIGN_UP', payload };
 };
 
