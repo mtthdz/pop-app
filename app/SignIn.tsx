@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { router } from "expo-router";
 import { Text, TouchableOpacity } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
@@ -27,15 +27,14 @@ export default function SignIn() {
   ) => {
     try {
       setLoading(true);
-   
       let sessionData = await supabaseSignIn({ userEmail, userPassword, actionType });
       let userMeta    = await getUserMeta(sessionData.id);
+
       dispatch(authSignIn(sessionData))
       dispatch(userMetaAdd(userMeta))
-
       router.replace('/');
-
       setLoading(false);
+
     } catch (error) {
       setLoading(false);
       setError((error as Error).message);
