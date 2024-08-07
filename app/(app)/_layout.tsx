@@ -1,19 +1,45 @@
 import { reduxSelect } from "@/types/reduxHooks";
 import { Redirect, Stack } from "expo-router";
+import MainHeader from "@/features/main/components/MainHeader";
+import { useSafeAreaInsets } from "react-native-safe-area-context";
+import { View } from "react-native";
 
-export default function AppLayout() {
+export default function MainLayout() {
+  const insets      = useSafeAreaInsets();
   const currentUser = reduxSelect(state => state.auth.id);
 
   if (!currentUser) return <Redirect href="/SignIn" />;
   return (
-    <Stack>
-      <Stack.Screen name='index' />
-      <Stack.Screen name='chat' />
+    <View
+      style={{
+        flex: 1,
+        paddingTop: insets.top,
+        paddingLeft: insets.left,
+        paddingRight: insets.right
+      }}
+    >
+      <Stack>
+        <Stack.Screen
+          name='index'
+          options={{
+            header: () => <MainHeader />
+          }}
+        />
+        <Stack.Screen
+          name='chat'
+          options={{
+            headerShown: false
+          }}
+        />
 
-      <Stack.Screen
-        name='profile'
-        options={{ presentation: 'modal' }}
-      />
-    </Stack>
+        <Stack.Screen
+          name='profile'
+          options={{
+            presentation: 'modal',
+            headerShown: false
+          }}
+        />
+      </Stack>
+    </View>
   )
 }
