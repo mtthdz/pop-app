@@ -9,7 +9,7 @@ import { reduxDispatch } from "@/types/reduxHooks";
 import { userMetaAdd } from "@/store/actions/userMetaActions";
 
 export default function SignIn() {
-  const [error, setError]               = useState<string | null>(null);
+  const [error, setError]               = useState<null | string>(null);
   const [loading, setLoading]           = useState<boolean>(false);
   const [userEmail, setUserEmail]       = useState('matt@mtthdz.com');
   const [userPassword, setUserPassword] = useState('pop');
