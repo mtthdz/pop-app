@@ -10,8 +10,9 @@ import { View } from "react-native";
  * Part of feature `main`
  * Component structure:
  * |-- Main
- * |  |-- MainList 
- * |  |  |-- MainCard
+ * |   |-- MainHeader
+ * |   |-- MainList 
+ * |   |   |-- MainCard
  * 
  * TODO: refactor prop drilling to context/redux
  * TODO: reconsider the use of `flex: 1` for height setting
@@ -20,23 +21,24 @@ export default function Main() {
   const [error, setError]       = useState<null | string>(null);
   const [loading, setLoading]   = useState<boolean>(false);
   const [listData, setListData] = useState<null | ChatMeta[]>(null);
-  const user_id                 = reduxSelect(state => state.auth.id);
+  const userId                  = reduxSelect(state => state.auth.id);
 
-  const chatList = async (id: string) => {
-    try {
-      setLoading(true);
-      let list = await getChatList(id);
-      setListData(list);
-      setLoading(false);
-
-    } catch (error) {
-      setLoading(false);
-      setError((error as Error).message);
-    }
-  }
-
+  // fetch screen data  
   useEffect(() => {
-    chatList(user_id);
+    const chatList = async (refId: string) => {
+      try {
+        setLoading(true);
+        let list = await getChatList(refId);
+        setListData(list);
+        setLoading(false);
+  
+      } catch (error) {
+        setLoading(false);
+        setError((error as Error).message);
+      }
+    }
+
+    chatList(userId);
   }, [])
 
   return (

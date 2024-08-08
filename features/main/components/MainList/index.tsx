@@ -1,8 +1,8 @@
 import { FlatList, Text, View } from "react-native";
-import { ChatMeta } from "../types/chatMeta";
-import MainCard from "./MainCard";
-import { useEffect } from "react";
-import { MainCardProps } from "../types/mainCardProps";
+import { SML } from "./MainList.styles";
+import MainCard from "../MainCard";
+import { MainCardProps } from "../../types/mainCardProps";
+import { ChatMeta } from "../../types/chatMeta";
 
 interface MainListProps {
   props: null | ChatMeta[]
@@ -21,13 +21,7 @@ export default function MainList ({ props }: MainListProps) {
   }
 
   return (
-    <View
-      style={{
-        flex: 1,
-        flexDirection: 'row',
-        justifyContent: 'center'
-      }}
-    >
+    <View style={[listData ? SML.mainContainer : SML.mainContainerAlt ]}>
     {listData ? (
       <FlatList
         data={listData}
@@ -35,14 +29,7 @@ export default function MainList ({ props }: MainListProps) {
         keyExtractor={(item, index) => index.toString()}
       />
       ):
-      <Text
-        style={{
-          marginTop: 10,
-          color: 'darkgrey'
-        }}
-      >
-        No chats for now...
-      </Text>
+      <Text style={SML.containerBody}>No chats for now...</Text>
     }
     </View>
   )

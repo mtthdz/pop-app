@@ -2,13 +2,13 @@ import { supabase } from "@/lib/supabase"
 import { ChatMeta } from "../types/chatMeta";
 
 /**
- * Takes user_id and searches all chat rooms with that user
+ * Takes userId and searches all chat rooms with that user
  * 
  * TODO: refactor user_a/user_b search
  * TODO: investigate why usermeta_a/usermeta_b is being returned
  * as an obj[] according to TS, when console shows only obj
  */
-export const getChatList = async (id: string): Promise<ChatMeta[]> => {
+export const getChatList = async (userId: string): Promise<ChatMeta[]> => {
   try {
     const { data, error } = await supabase
       .from('chat_room')
@@ -27,7 +27,7 @@ export const getChatList = async (id: string): Promise<ChatMeta[]> => {
           user_picture
         )
       `)
-      .or(`user_a.eq.${id},user_b.eq.${id}`)
+      .or(`user_a.eq.${userId},user_b.eq.${userId}`)
 
     if (error) throw new Error((error).message);
     return data;
