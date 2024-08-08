@@ -5,7 +5,7 @@ import { ChatMeta } from "../types/chatMeta";
  * Takes user_id and searches all chat rooms with that user
  * 
  * TODO: refactor user_a/user_b search
- * TODO: investigate why usermeta_a/usermeta_b is being returned 
+ * TODO: investigate why usermeta_a/usermeta_b is being returned
  * as an obj[] according to TS, when console shows only obj
  */
 export const getChatList = async (id: string): Promise<ChatMeta[]> => {

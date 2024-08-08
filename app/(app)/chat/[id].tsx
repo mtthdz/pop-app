@@ -2,11 +2,12 @@ import { useLocalSearchParams } from "expo-router";
 import { Text, View } from "react-native";
 
 export default function Chat() {
-  const { id } = useLocalSearchParams();
+  const params = useLocalSearchParams();
+  console.log(params);
 
   return (
     <View>
-      <Text>Chat room: {id}</Text>
+      <Text>Chat room: {params.id}</Text>
     </View>
   )
 }

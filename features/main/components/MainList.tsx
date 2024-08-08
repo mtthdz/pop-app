@@ -1,13 +1,24 @@
 import { FlatList, Text, View } from "react-native";
 import { ChatMeta } from "../types/chatMeta";
 import MainCard from "./MainCard";
+import { useEffect } from "react";
+import { MainCardProps } from "../types/mainCardProps";
 
 interface MainListProps {
-  data: null | ChatMeta[]
+  props: null | ChatMeta[]
 }
 
-export default function MainList ({ data }: MainListProps) {
-  let listData = data ?? null
+/**
+ * (parent) container component for MainCard
+ * 
+ * TODO: refactor listData to useState for sorting read/unread status
+ */
+export default function MainList ({ props }: MainListProps) {
+  let listData = props ?? null;
+
+  const renderItem = ({ item, index, separators }: MainCardProps) => {
+    return <MainCard item={item} index={index} separators={separators} />
+  }
 
   return (
     <View
@@ -19,8 +30,8 @@ export default function MainList ({ data }: MainListProps) {
     >
     {listData ? (
       <FlatList
-        data={data}
-        renderItem={MainCard}
+        data={listData}
+        renderItem={renderItem}
         keyExtractor={(item, index) => index.toString()}
       />
       ):
