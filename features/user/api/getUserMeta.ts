@@ -3,22 +3,22 @@ import { UserMeta } from "@/types/userMeta";
 
 /**
  * fetches userMeta from supabase with session's user id
+ * returns UserMeta object type
  *
  * TODO: remove or refactor id type union and conditional block
  */
-export const getUserMeta = async (id: string | null): Promise<UserMeta> => {
+export const getUserMeta = async (userId: string | null): Promise<UserMeta> => {
   try {
-    if (id) {
+    if (userId) {
       let { data, error } = await supabase
         .from('user_meta')
         .select('*')
-        .eq('id', id)
+        .eq('id', userId)
         .single();
   
       if (error) throw new Error(error.message);
 
       return {
-        id: data.id,
         user_first: data.user_first,
         user_last: data.user_last,
         user_name: data.user_name,
@@ -28,7 +28,6 @@ export const getUserMeta = async (id: string | null): Promise<UserMeta> => {
       }
     } else {
       return {
-        id: null,
         user_first: null,
         user_last: null,
         user_name: null,
