@@ -3,6 +3,7 @@ import { Redirect, Stack } from "expo-router";
 import MainHeader from "@/features/main/components/MainHeader";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { View } from "react-native";
+import UserHeader from "@/features/user/components/UserHeader";
 
 export default function MainLayout() {
   const insets      = useSafeAreaInsets();
@@ -31,12 +32,11 @@ export default function MainLayout() {
             headerShown: false
           }}
         />
-
         <Stack.Screen
           name='profile'
           options={{
             presentation: 'modal',
-            headerShown: false
+            header: () => <UserHeader />
           }}
         />
       </Stack>

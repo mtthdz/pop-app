@@ -10,9 +10,9 @@ import { Provider } from "react-redux";
  * |-- SignIn         auth screen
  * |-- (app)          actual app
  * |   |-- _layout    stack nav
- * |   |-- index      main/home screen
+ * |   |-- index      main screen
  * |   |-- Profile    profile screen, drawer
- * |   |-- Chat       dynamic, own `_layout`
+ * |   |-- (Chat)     dynamic, own `_layout`
  */
 export default function RootLayout() {
   return (
