@@ -1,6 +1,5 @@
 // Used both in Supabase API Auth and UserMeta Reducer
 export interface UserMeta {
-  id: null | string;
   user_first: null | string;
   user_last: null | string;
   user_name: null | string;

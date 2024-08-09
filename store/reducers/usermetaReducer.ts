@@ -3,7 +3,6 @@ import { UserMeta } from "@/types/userMeta";
 interface UserMetaReducer extends UserMeta {}
 
 const initialState: UserMetaReducer = {
-  id: null,
   user_first: null,
   user_last: null,
   user_name: null,
