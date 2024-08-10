@@ -1,15 +1,15 @@
-export const alertSuccess = (payload: string) => {
-  return { type: 'ALERT_SUCCESS', payload };
+export const alertSuccess = (message: string) => {
+  return { type: 'ALERT_SUCCESS', payload: { message} };
 };
 
-export const alertError = (payload: string) => {
-  return { type: 'ALERT_ERROR', payload };
+export const alertError = (message: string) => {
+  return { type: 'ALERT_ERROR', payload: { message } };
 };
 
-export const alertBasic = (payload: string) => {
-  return { type: 'ALERT_BASIC', payload };
+export const alertBasic = (message: string) => {
+  return { type: 'ALERT_BASIC', payload: { message } };
 };
 
-export const notificationClear = () => {
+export const alertClear = () => {
   return { type: 'ALERT_CLEAR' };
 }
