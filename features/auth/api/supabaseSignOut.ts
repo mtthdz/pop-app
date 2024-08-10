@@ -1,4 +1,4 @@
-import { supabase } from "@/lib/supabase";
+import { supabase } from "@/lib/supabaseConfig";
 
 export const supabaseSignOut = async (): Promise<void> => {
   try {
