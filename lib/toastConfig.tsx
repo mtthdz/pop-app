@@ -1,12 +1,15 @@
 import { BaseToast, ErrorToast } from 'react-native-toast-message';
 
+/**
+ * TODO: adjust styling for modal toast
+ */
 export const toastConfig = {
   success: (props: Record<string, any>) => (
     <BaseToast
       {...props}
       style={{
         position: 'absolute',
-        top: -70,
+        top: -35,
         borderWidth: 0,
         borderRadius: 5,
         borderLeftWidth: 0,
@@ -28,7 +31,7 @@ export const toastConfig = {
       {...props}
       style={{
         position: 'absolute',
-        top: -70,
+        top: -35,
         borderWidth: 0,
         borderRadius: 5,
         borderLeftWidth: 0,
@@ -51,7 +54,7 @@ export const toastConfig = {
       {...props}
       style={{
         position: 'absolute',
-        top: -70,
+        top: -35,
         borderWidth: 0,
         borderRadius: 5,
         borderLeftWidth: 0,
