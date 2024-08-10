@@ -1,4 +1,4 @@
-import { supabase } from "@/lib/supabase";
+import { supabase } from "@/lib/supabaseConfig";
 import { UserMeta } from "@/types/userMeta";
 
 /**

@@ -3,7 +3,7 @@ import { router } from "expo-router";
 import { Text, TouchableOpacity, View } from "react-native";
 import { SUH } from "./UserHeader.styles";
 import { reduxDispatch } from "@/types/reduxHooks";
-import { errorSet } from "@/store/actions/alertActions";
+import { alertBasic, alertError, alertSuccess } from "@/store/actions/alertActions";
 
 export default function UserHeader() {
   const dispatch = reduxDispatch()
@@ -15,7 +15,7 @@ export default function UserHeader() {
           <TouchableOpacity
             style={SUH.buttonContainer}
             onPress={() => {
-              dispatch(errorSet('Save failed. Try again'));
+              dispatch(alertSuccess('saved!'));
             }}
           >
             <Text style={SUH.buttonBodyAlt}>close</Text>
