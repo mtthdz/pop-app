@@ -45,5 +45,27 @@ export const toastConfig = {
         color: 'black'
       }}
     />
-  )
+  ),
+  basic: (props: Record<string, any>) => (
+    <BaseToast
+      {...props}
+      style={{
+        position: 'absolute',
+        top: -70,
+        borderWidth: 0,
+        borderRadius: 5,
+        borderLeftWidth: 0,
+        backgroundColor: 'white',
+        zIndex: 20000,
+      }}
+      text1Style={{
+        fontSize: 16,
+        color: 'black'
+      }}
+      text2Style={{
+        fontSize: 14,
+        color: 'black'
+      }}
+    />
+  ),
 };
