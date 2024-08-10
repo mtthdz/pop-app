@@ -1,9 +1,11 @@
 import { supabaseSignOut } from "@/features/auth/api/supabaseSignOut";
 import UserForm from "@/features/user/components/UserForm";
+import { toastConfig } from "@/lib/toastConfig";
 import { authSignOut } from "@/store/actions/authActions";
 import { userMetaDelete } from "@/store/actions/userMetaActions";
 import { reduxDispatch } from "@/types/reduxHooks";
 import { KeyboardAvoidingView, Platform, View } from "react-native";
+import Toast from "react-native-toast-message";
 
 export default function Profile() {
   const dispatch = reduxDispatch();
@@ -29,6 +31,7 @@ export default function Profile() {
       keyboardVerticalOffset={Platform.OS === 'ios' ? 0 : 0}
     >
       <UserForm />
+      <Toast config={toastConfig} />
     </KeyboardAvoidingView>
   )
 }
