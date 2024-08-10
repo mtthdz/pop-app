@@ -12,6 +12,7 @@ const initialState: UserMetaReducer = {
 };
 
 // TODO: type the reducer action
+// TODO: implement a retry function on `USERMETA_ERROR`
 const userMetaReducer = (state = initialState, action: any) => {
   switch (action.type) {
     case 'USERMETA_ADD':

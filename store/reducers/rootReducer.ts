@@ -11,6 +11,11 @@ const rootPersistConfig = {
   whitelist: ['auth', 'userMeta'],
 };
 
+/**
+ * auth     = user session data
+ * userMeta = user meta data (profile)
+ * error    = global error state
+ */
 const rootReducer = combineReducers({
   auth: authReducer,
   userMeta: userMetaReducer,

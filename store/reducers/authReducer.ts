@@ -13,6 +13,7 @@ const initialState: AuthReducer = {
 };
 
 // TODO: type the reducer action
+// TODO: implement a retry function on `AUTH_ERROR`
 const authReducer = (state = initialState, action: any) => {
   switch (action.type) {
     case 'AUTH_SIGN_UP':
