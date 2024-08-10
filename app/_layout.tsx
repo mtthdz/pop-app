@@ -1,8 +1,8 @@
 import { store } from '@/store/configureStore';
 import { Provider } from 'react-redux';
 import Toast from 'react-native-toast-message';
-import RootLayoutContent from './RootLayoutContent';
 import { toastConfig } from '@/lib/toastConfig';
+import RootConfig from './RootConfig';
 
 /**
  * Routing Map
@@ -20,7 +20,7 @@ import { toastConfig } from '@/lib/toastConfig';
 export default function RootLayout() {
   return (
     <Provider store={store}>
-      <RootLayoutContent />
+      <RootConfig />
       <Toast config={toastConfig} />
     </Provider>
   );

@@ -1,10 +1,10 @@
 import { Slot } from 'expo-router';
-import { errorClear } from "@/store/actions/errorActions";
+import { errorClear } from "@/store/actions/alertActions";
 import { reduxDispatch, reduxSelect } from "@/types/reduxHooks";
 import { useEffect } from "react";
 import Toast from "react-native-toast-message";
 
-export default function RootLayoutContent() {
+export default function RootConfig() {
   const error = reduxSelect(state => state.error.message);
   const dispatch = reduxDispatch();
   

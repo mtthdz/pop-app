@@ -3,7 +3,7 @@ import { router } from "expo-router";
 import { Text, TouchableOpacity, View } from "react-native";
 import { SUH } from "./UserHeader.styles";
 import { reduxDispatch } from "@/types/reduxHooks";
-import { errorSet } from "@/store/actions/errorActions";
+import { errorSet } from "@/store/actions/alertActions";
 
 export default function UserHeader() {
   const dispatch = reduxDispatch()
