@@ -1,74 +1,60 @@
+import { ViewStyle } from 'react-native';
 import { BaseToast, ErrorToast } from 'react-native-toast-message';
 
 /**
  * TODO: adjust styling for modal toast
  */
+const baseStyle: ViewStyle = {
+  position: 'absolute',
+  top: -35,
+  borderWidth: 0,
+  borderRadius: 5,
+  borderLeftWidth: 0,
+  zIndex: 20000,
+};
+
+const baseTextStyle = {
+  fontSize: 16,
+  color: '#000000',
+};
+
+const subTextStyle = {
+  fontSize: 14,
+  color: '#000000',
+};
+
 export const toastConfig = {
   success: (props: Record<string, any>) => (
     <BaseToast
       {...props}
       style={{
-        position: 'absolute',
-        top: -35,
-        borderWidth: 0,
-        borderRadius: 5,
-        borderLeftWidth: 0,
+        ...baseStyle,
         backgroundColor: '#c1f9dc',
-        zIndex: 20000,
       }}
-      text1Style={{
-        fontSize: 16,
-        color: 'black'
-      }}
-      text2Style={{
-        fontSize: 14,
-        color: 'black'
-      }}
+      text1Style={baseTextStyle}
+      text2Style={subTextStyle}
     />
   ),
   error: (props: Record<string, any>) => (
     <ErrorToast
       {...props}
       style={{
-        position: 'absolute',
-        top: -35,
-        borderWidth: 0,
-        borderRadius: 5,
-        borderLeftWidth: 0,
-        borderLeftColor: 'red',
+        ...baseStyle,
         backgroundColor: '#ffc7c5',
-        zIndex: 20000,
       }}
-      text1Style={{
-        fontSize: 16,
-        color: 'black'
-      }}
-      text2Style={{
-        fontSize: 14,
-        color: 'black'
-      }}
+      text1Style={baseTextStyle}
+      text2Style={subTextStyle}
     />
   ),
   basic: (props: Record<string, any>) => (
     <BaseToast
       {...props}
       style={{
-        position: 'absolute',
-        top: -35,
-        borderWidth: 0,
-        borderRadius: 5,
-        borderLeftWidth: 0,
-        backgroundColor: 'white',
-        zIndex: 20000,
+        ...baseStyle,
+        backgroundColor: '#ffffff',
       }}
-      text1Style={{
-        fontSize: 16,
-        color: 'black'
-      }}
-      text2Style={{
-        fontSize: 14,
-        color: 'black'
-      }}
+      text1Style={baseTextStyle}
+      text2Style={subTextStyle}
     />
   ),
 };
