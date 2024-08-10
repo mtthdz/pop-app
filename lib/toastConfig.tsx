@@ -2,7 +2,8 @@ import { ViewStyle } from 'react-native';
 import { BaseToast, ErrorToast } from 'react-native-toast-message';
 
 /**
- * TODO: adjust styling for modal toast
+ * TODO: adjust styling for modal toast. Viewport changes (shifts down)
+ * for Modal toast and pushes the toast further into the middle
  */
 const baseStyle: ViewStyle = {
   position: 'absolute',
