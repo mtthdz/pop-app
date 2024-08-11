@@ -22,15 +22,11 @@ export default function MainLayout() {
       <Stack>
         <Stack.Screen
           name='index'
-          options={{
-            header: () => <MainHeader />
-          }}
+          options={{ header: () => <MainHeader /> }}
         />
         <Stack.Screen
           name='chat'
-          options={{
-            headerShown: false
-          }}
+          options={{ headerShown: false }}
         />
         <Stack.Screen
           name='user'
