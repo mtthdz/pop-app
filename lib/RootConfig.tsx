@@ -4,6 +4,7 @@ import Toast from "react-native-toast-message";
 import { alertClear } from '@/store/actions/alertActions';
 import { AlertReducer } from '@/types/alertReducer';
 import { reduxDispatch, reduxSelect } from "@/types/reduxHooks";
+import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 interface ToastType extends AlertReducer {}
 
@@ -39,6 +40,8 @@ export default function RootConfig() {
   }, [alert, dispatch]);
 
   return (
-    <Slot />
+    <SafeAreaProvider>
+      <Slot />
+    </SafeAreaProvider>
   );
 }
