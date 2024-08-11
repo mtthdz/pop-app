@@ -29,10 +29,12 @@
     "plugins": [
       "expo-router",
       "expo-secure-store",
-      "expo-image-picker",
+      [
+        "expo-image-picker",
         {
-          "photosPermission": "pop requires access to your photos."
+          "photosPermission": "The app accesses your photos to let you upload an image."
         }
+      ]
     ],
     "experiments": {
       "typedRoutes": true
