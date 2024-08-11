@@ -14,7 +14,7 @@ export default function MainHeader() {
       <Wrapper>
         <View style={SMH.flexContainer}>
           <Text style={SMH.headerTitle}>pop</Text>
-          <Link href={'/profile'}>{userName}</Link>
+          <Link href={'/user'}>{userName}</Link>
         </View>
       </Wrapper>
     </View>

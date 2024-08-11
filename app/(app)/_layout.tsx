@@ -33,7 +33,7 @@ export default function MainLayout() {
           }}
         />
         <Stack.Screen
-          name='profile'
+          name='user'
           options={{
             presentation: 'modal',
             header: () => <UserHeader />

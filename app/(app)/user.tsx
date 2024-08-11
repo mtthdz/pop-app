@@ -1,22 +1,25 @@
 import { supabaseSignOut } from "@/features/auth/api/supabaseSignOut";
 import UserForm from "@/features/user/components/UserForm";
 import { toastConfig } from "@/lib/toastConfig";
+import { alertError } from "@/store/actions/alertActions";
 import { authSignOut } from "@/store/actions/authActions";
 import { userMetaDelete } from "@/store/actions/userMetaActions";
 import { reduxDispatch } from "@/types/reduxHooks";
 import { KeyboardAvoidingView, Platform, Text, TouchableOpacity, View } from "react-native";
 import Toast from "react-native-toast-message";
 
-export default function Profile() {
+// TODO: setup UI error message tuple
+export default function User() {
   const dispatch = reduxDispatch();
 
   const signOut = async () => {
     try {
       await supabaseSignOut();
+    } catch (error) {
+      dispatch(alertError((error as Error).message));
+    } finally {
       dispatch(authSignOut());
       dispatch(userMetaDelete());
-    } catch (error) {
-      console.log((error as Error).message);
     }
   }
 
