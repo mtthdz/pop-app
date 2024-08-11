@@ -2,7 +2,7 @@ import { store } from '@/store/configureStore';
 import { Provider } from 'react-redux';
 import Toast from 'react-native-toast-message';
 import { toastConfig } from '@/lib/toastConfig';
-import RootConfig from './RootConfig';
+import RootConfig from '../lib/RootConfig';
 
 /**
  * Routing Map
@@ -10,7 +10,7 @@ import RootConfig from './RootConfig';
  * /app
  * |-- _layout            auth & redux store 
  * |-- SignIn             auth screen
- * |-- RootLayoutContent  toast notif listener
+ * |-- RootConfig         notification wrapper
  * |-- (app)              actual app
  * |   |-- _layout        stack nav
  * |   |-- index          main screen

@@ -9,7 +9,8 @@ interface ToastType extends AlertReducer {}
 
 /**
  * RootConfig handles any context providers that requires
- * the use of redux methods. Currently only using toast notifications
+ * the use of redux methods.
+ * Currently using toast notifications
  */
 export default function RootConfig() {
   const alert = reduxSelect(state => state.alert);
