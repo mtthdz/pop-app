@@ -28,7 +28,11 @@
     },
     "plugins": [
       "expo-router",
-      "expo-secure-store"
+      "expo-secure-store",
+      "expo-image-picker",
+        {
+          "photosPermission": "pop requires access to your photos."
+        }
     ],
     "experiments": {
       "typedRoutes": true
