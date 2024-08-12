@@ -1,22 +1,38 @@
-import { Text, TextInput, TouchableOpacity, View } from "react-native";
+import { NativeSyntheticEvent, Text, TextInput, TextInputContentSizeChangeEventData, TouchableOpacity, View } from "react-native";
 import { SCF } from "./ChatForm.styles";
+import Wrapper from "@/components/Wrapper";
+import { useState } from "react";
 
 export default function ChatForm() {
+  const [text, setText] = useState<string>('');
+  const [inputHeight, setInputHeight] = useState<number>(0);
+
+  const handleContentSizeChange = (event: NativeSyntheticEvent<TextInputContentSizeChangeEventData>) => {
+    setInputHeight(event.nativeEvent.contentSize.height);
+  };
+
   return (
     <View style={SCF.mainContainer}>
-      <TextInput
-        // style={SCF.textInput}
-        multiline
-        placeholder="Message"
-        value={'chat form'}
-        returnKeyType="done"
-      />
-      <TouchableOpacity
-        onPress={() => console.log('lol')}
-        // style={SCF.buttonInput}
-      >
-        <Text>submit</Text>
-      </TouchableOpacity>
+      <Wrapper>
+        <View style={SCF.flexContainer}>
+          <View style={SCF.inputContainer}>
+            <TextInput
+              style={SCF.inputBody}
+              multiline
+              placeholder="Message"
+              value={text}
+              onChangeText={(inputText) => setText(inputText)}
+              onContentSizeChange={handleContentSizeChange}
+            />
+          </View>
+          <TouchableOpacity
+            style={SCF.buttonContainer}
+            onPress={() => console.log('lol')}
+          >
+            <Text style={SCF.buttonBody}>{'▲'}</Text>
+          </TouchableOpacity>
+        </View>
+      </Wrapper>
     </View>
   )
 }
