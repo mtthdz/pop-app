@@ -1,6 +1,6 @@
 # pop
 
-Rebirthing an MSN-like chat app. Currently rebuilding a React Native app into Expo.
+Creating an MSN-like chat app. Currently rebuilding a React Native app into Expo.
 
 ## Get started
 
