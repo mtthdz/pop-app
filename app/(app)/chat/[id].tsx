@@ -1,15 +1,21 @@
+import { useRef } from "react";
+import { KeyboardAvoidingView, Platform, ScrollView } from "react-native";
 import { useLocalSearchParams } from "expo-router";
-import { KeyboardAvoidingView, Platform } from "react-native";
 import { SafeAreaView, useSafeAreaInsets } from "react-native-safe-area-context";
 import ChatForm from "@/features/chat/components/ChatForm";
 import ChatHeader from "@/features/chat/components/ChatHeader";
 import ChatWindow from "@/features/chat/components/ChatWindow";
 
-// TODO: fix TS errors
+/**
+ * TODO: scrollview ref unresponsive on render
+ * TODO: scrollview ref unresponsive on textInput multiline
+ * TODO: TS errors
+ */
 export default function Chat() {
-  const params = useLocalSearchParams();
-  const insets = useSafeAreaInsets();
-  console.log(params);
+  const params        = useLocalSearchParams();
+  const insets        = useSafeAreaInsets();
+  const scrollViewRef = useRef<ScrollView>(null);
+
   return (
     <SafeAreaView
       style={{ flex: 1 }}
@@ -21,7 +27,7 @@ export default function Chat() {
         keyboardVerticalOffset={insets.top}
         style={{ flex: 1 }}
       >
-        <ChatWindow />
+        <ChatWindow scrollViewRef={scrollViewRef} />
         <ChatForm />
       </KeyboardAvoidingView>
     </SafeAreaView>
