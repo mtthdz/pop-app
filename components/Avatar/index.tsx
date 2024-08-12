@@ -8,13 +8,11 @@ interface AvatarProps {
 
 const getSizeStyle = (size: string) => {
   switch (size) {
-    case 'xs':
-      return { width: 24, height: 24 };
     case 's':
-      return { width: 40, height: 40 };
+      return { width: 32, height: 32 };
     case 'm':
     default:
-      return { width: 52, height: 52 };
+      return { width: 54, height: 54 };
     case 'l':
       return { width: 96, height: 96 };
   }

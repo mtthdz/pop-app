@@ -19,7 +19,7 @@ export default function ChatHeader({
             style={SCH.buttonContainer}
             onPress={() => router.back()}
           >
-            <Text style={SCH.buttonBody}>❮</Text>
+            <Text style={SCH.buttonBody}>{'◀'}</Text>
           </TouchableOpacity>
           <Avatar image={null} size="m" />
           <View style={SCH.contentContainer}>

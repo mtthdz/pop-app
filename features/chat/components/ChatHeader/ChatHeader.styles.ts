@@ -2,7 +2,8 @@ import { StyleSheet } from "react-native";
 
 export const SCH = StyleSheet.create({
   mainContainer: {
-    paddingVertical: 10,
+    paddingTop: 6,
+    paddingBottom: 12,
     backgroundColor: 'white',
   },
   flexContainer: {
@@ -11,13 +12,13 @@ export const SCH = StyleSheet.create({
     alignItems: 'center'
   },
   buttonContainer: {
-    marginRight: 10
+    marginRight: 18
   },
   contentContainer: {
-    marginLeft: 10
+    marginLeft: 12
   },
   buttonBody: {
-    fontSize: 24
+    fontSize: 20
   },
   contentHeader: {
     fontSize: 16,

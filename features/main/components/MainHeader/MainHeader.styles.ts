@@ -2,12 +2,13 @@ import { StyleSheet } from "react-native";
 
 export const SMH = StyleSheet.create({
   mainContainer: {
-    paddingBottom: 10
+    paddingTop: 6,
+    paddingBottom: 12
   },
   flexContainer: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    alignItems: 'center'
+    alignItems: 'flex-end'
   },
   
   // content
