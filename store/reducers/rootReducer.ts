@@ -14,7 +14,7 @@ const rootPersistConfig = {
 /**
  * auth     = user session data
  * userMeta = user meta data (profile)
- * error    = global error state
+ * alert    = in-app alert/notification state
  */
 const rootReducer = combineReducers({
   auth: authReducer,

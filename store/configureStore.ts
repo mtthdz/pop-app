@@ -3,10 +3,8 @@ import { persistStore } from 'redux-persist';
 import rootReducer from './reducers/rootReducer';
 import loggerMiddleware from './middleware/loggerMiddleware';
 
-const persistedReducer = rootReducer;
-
 const store = configureStore({
-  reducer: persistedReducer,
+  reducer: rootReducer,
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({ serializableCheck: false }).concat(loggerMiddleware),
 });
