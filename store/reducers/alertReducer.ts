@@ -11,7 +11,7 @@ const initialState: AlertReducer = {
  * TODO: type actions
  * TODO: implement a queue to handle multiple errors
  */
-const alertReducer = (state = initialState, action: any) => {
+const alertReducer = (state = initialState, action: any): AlertReducer => {
   switch (action.type) {
     case 'ALERT_SUCCESS':
       return {

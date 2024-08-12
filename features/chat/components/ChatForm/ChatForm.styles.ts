@@ -2,8 +2,7 @@ import { StyleSheet } from "react-native";
 
 export const SCF = StyleSheet.create({
   mainContainer: {
-    // borderWidth: 1,
-    paddingVertical: 12
+    paddingVertical: 12,
   },
   flexContainer: {
     flexDirection: 'row',

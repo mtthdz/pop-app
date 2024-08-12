@@ -1,7 +1,7 @@
+import { useState } from "react";
 import { NativeSyntheticEvent, Text, TextInput, TextInputContentSizeChangeEventData, TouchableOpacity, View } from "react-native";
 import { SCF } from "./ChatForm.styles";
 import Wrapper from "@/components/Wrapper";
-import { useState } from "react";
 
 export default function ChatForm() {
   const [text, setText] = useState<string>('');
