@@ -1,46 +1,33 @@
 import Wrapper from "@/components/Wrapper";
-import { useEffect } from "react";
-import { Keyboard, ScrollView, Text } from "react-native";
-import { ChatWindowProps } from "../../types/chatWindowProps";
+import { Text, View } from "react-native";
+import ChatCard from "../ChatCard";
+import { SCW } from "./ChatWindow.styles";
 
-// TODO: TS error on `ScrollView` ref
-export default function ChatWindow({ scrollViewRef }: ChatWindowProps) {
-  useEffect(() => {
-    const keyboardDidShowListener = Keyboard.addListener('keyboardDidShow', () => {
-      if (scrollViewRef.current) {
-        scrollViewRef.current.scrollToEnd({ animated: true });
-      }
-    });
+export default function ChatWindow() {
+  const userMessage = {
+    id: '412512c1ssa1231241',
+    userId: '78b3b0f1-cdef-4b18-af4f-ce81ce37ad3b',
+    message: 'hello hello hi hi hey hey howdy howdy',
+    timestamp: '202412011241511'
+  }
+  const otherMessage = {
+    id: '412512c1ssa1231241',
+    userId: '4crfc23t4y423hfef2f2',
+    message: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum',
+    timestamp: '202412011241511'
+  }
 
-    const keyboardDidHideListener = Keyboard.addListener('keyboardDidHide', () => {
-      if (scrollViewRef.current) {
-        scrollViewRef.current.scrollToEnd({ animated: true });
-      }
-    });
-
-    return () => {
-      keyboardDidShowListener.remove();
-      keyboardDidHideListener.remove();
-    };
-  }, [scrollViewRef]);
+  
 
   return (
-    <ScrollView
-      ref={scrollViewRef}
-      onContentSizeChange={() => {
-        scrollViewRef?.current?.scrollToEnd({ animated: true });
-      }}
-    >
+    <View style={SCW.mainContainer}>
       <Wrapper>
-        <Text>beginning</Text>
-        <Text>----------</Text>
-        {/* Mock messages */}
-        {[...Array(100)].map((_, i) => (
-          <Text key={i}>Hello</Text>
-        ))}
-        <Text>----------</Text>
-        <Text>End</Text>
+        <ChatCard {...userMessage} />
+        <ChatCard {...otherMessage} />
+        <ChatCard {...otherMessage} />
+        <ChatCard {...userMessage} />
+        <ChatCard {...userMessage} />
       </Wrapper>
-    </ScrollView>
+    </View>
   )
 }
