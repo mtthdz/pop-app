@@ -15,6 +15,7 @@ interface MainListProps {
  */
 export default function MainList ({ props }: MainListProps) {
   let listData = props ?? null;
+  console.log(listData);
 
   const renderItem = ({ item, index, separators }: MainCardProps) => {
     return <MainCard item={item} index={index} separators={separators} />

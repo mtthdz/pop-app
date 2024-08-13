@@ -19,20 +19,20 @@ export const getUserMeta = async (userId: string | null): Promise<UserMeta> => {
       if (error) throw new Error(error.message);
 
       return {
-        user_first: data.user_first,
-        user_last: data.user_last,
-        user_name: data.user_name,
-        user_bio: data.user_bio,
-        user_picture: data.user_picture,
+        userFirst: data.user_first,
+        userLast: data.user_last,
+        userName: data.user_name,
+        userStatus: data.user_status,
+        userPicture: data.user_picture,
         error: null
       }
     } else {
       return {
-        user_first: null,
-        user_last: null,
-        user_name: null,
-        user_bio: null,
-        user_picture: null,
+        userFirst: null,
+        userLast: null,
+        userName: null,
+        userStatus: null,
+        userPicture: null,
         error: null
       }
     }

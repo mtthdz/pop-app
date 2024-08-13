@@ -14,17 +14,19 @@ export const getChatList = async (userId: string): Promise<ChatMeta[]> => {
       .from('chat_room')
       .select(`
         id,
-        user_a,
-        user_b,
-        usermeta_a:user_meta!user_a(
+        userA: user_a,
+        userB: user_b,
+        usermetaA:user_meta!user_a(
           id,
-          user_name,
-          user_picture
+          userName: user_name,
+          userPicture: user_picture,
+          userStatus: user_status
         ),
-        usermeta_b:user_meta!user_b(
+        usermetaB:user_meta!user_b(
           id,
-          user_name,
-          user_picture
+          userName: user_name,
+          userPicture: user_picture,
+          userStatus: user_status
         )
       `)
       .or(`user_a.eq.${userId},user_b.eq.${userId}`)

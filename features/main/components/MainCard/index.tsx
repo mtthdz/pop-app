@@ -23,8 +23,8 @@ export default function MainCard({ item, index }: MainCardProps) {
   const userId = reduxSelect(state => state.auth.id);
 
   // Determine if the current user is user_a or user_b
-  const isUserA: boolean = chatMeta.user_a === userId;
-  const otherUser: PublicUserMeta = isUserA ? chatMeta.usermeta_b : chatMeta.usermeta_a;
+  const isUserA: boolean = chatMeta.userA === userId;
+  const otherUser: PublicUserMeta = isUserA ? chatMeta.usermetaB : chatMeta.usermetaA;
 
   return (
     <TouchableOpacity
@@ -35,8 +35,8 @@ export default function MainCard({ item, index }: MainCardProps) {
           params: {
             id: chatMeta.id || '',
             otherId: otherUser.id,
-            otherName: otherUser.user_name,
-            otherPicture: otherUser.user_picture
+            otherName: otherUser.userName,
+            otherPicture: otherUser.userPicture
           },
         });
       }}
@@ -48,7 +48,7 @@ export default function MainCard({ item, index }: MainCardProps) {
             <Avatar image={null} size="m" />
           </View>
           <View style={SMC.contentContainer}>
-            <Text style={SMC.contentHeader}>{otherUser.user_name}</Text>
+            <Text style={SMC.contentHeader}>{otherUser.userName}</Text>
             <Text style={SMC.contentBody}>placeholder description...</Text>
           </View>
           <View style={SMC.metaContainer}>

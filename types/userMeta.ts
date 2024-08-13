@@ -1,9 +1,9 @@
 // Used both in Supabase API Auth and UserMeta Reducer
 export interface UserMeta {
-  user_first: null | string;
-  user_last: null | string;
-  user_name: null | string;
-  user_bio: null | string;
-  user_picture: null | string;
+  userFirst: null | string;
+  userLast: null | string;
+  userName: null | string;
+  userStatus: null | string;
+  userPicture: null | string;
   error: null | string;
 }

@@ -1,13 +1,14 @@
 export interface ChatMeta {
   id: null | string;
-  user_a: null | string;
-  user_b: null | string;
-  usermeta_a: PublicUserMeta;
-  usermeta_b: PublicUserMeta;
+  userA: null | string;
+  userB: null | string;
+  usermetaA: PublicUserMeta;
+  usermetaB: PublicUserMeta;
 }
 
 export interface PublicUserMeta {
   id: null | string;
-  user_name: null | string;
-  user_picture: null | string;
+  userName: null | string;
+  userPicture: null | string;
+  userStatus: null | string;
 }

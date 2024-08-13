@@ -7,6 +7,21 @@ import ChatHeader from "@/features/chat/components/ChatHeader";
 import ChatWindow from "@/features/chat/components/ChatWindow";
 
 /**
+ * Chat screen, handles overarching structure for child components
+ * Part of feature `chat`
+ * Component structure:
+ * |-- chat/[id]
+ * |   |-- ChatHeader
+ * |   |-- ChatWindow
+ * |   |   |-- ChatCard
+ * |   |-- ChatForm
+ * 
+ * API fetching has been divvyed up to two child components rather 
+ * than providing context/prop drilling from `Chat/[id]`.
+ * - ChatWindow handles GET messages via websocket
+ * - ChatForm handles PUT messages
+ * 
+ * 
  * TODO: scrollview bottom out on render not perfect. Margin/padding issue with 
  * ChatForm underneath
  * TODO: scrollview ref unresponsive on textInput multiline. Consider Context to
@@ -53,7 +68,6 @@ export default function Chat() {
           onContentSizeChange={() => {
             scrollViewRef.current?.scrollToEnd();
           }}
-          // contentContainerStyle={{ paddingBottom: insets.bottom }}
         >
           <ChatWindow/>
         </ScrollView>
