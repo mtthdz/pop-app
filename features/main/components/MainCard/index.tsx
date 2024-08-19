@@ -44,15 +44,14 @@ export default function MainCard({ item, index }: MainCardProps) {
       <Wrapper>
         <View style={SMC.mainContainer}>
           <View style={SMC.avatarContainer}>
-            {/* <View style={SMC.avatar}></View> */}
-            <Avatar image={null} size="m" />
+            <Avatar image={otherUser.userPicture} size="m" />
           </View>
           <View style={SMC.contentContainer}>
             <Text style={SMC.contentHeader}>{otherUser.userName}</Text>
-            <Text style={SMC.contentBody}>placeholder description...</Text>
+            <Text style={SMC.contentBody}>{otherUser.userStatus ?? 'No status'}</Text>
           </View>
           <View style={SMC.metaContainer}>
-            <Text style={SMC.contentMeta}>9:00</Text>
+            <Text style={SMC.contentMeta}>online</Text>
           </View>
         </View>
       </Wrapper>
