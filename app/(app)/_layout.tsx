@@ -5,9 +5,6 @@ import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { View } from "react-native";
 import UserHeader from "@/features/user/components/UserHeader";
 
-/**
- * TODO: determine redundancy of safeAreaInsets with safeAreaProvider
- */
 export default function MainLayout() {
   const insets      = useSafeAreaInsets();
   const currentUser = reduxSelect(state => state.auth.id);
