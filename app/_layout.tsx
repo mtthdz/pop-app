@@ -9,17 +9,13 @@ import RootConfig from '../lib/RootConfig';
  * 
  * /app
  * |-- _layout            auth & redux store 
+ * |-- |-- RootConfig     notification wrapper
  * |-- SignIn             auth screen (placeholder)
- * |-- RootConfig         notification wrapper
  * |-- (app)              actual app
  * |   |-- _layout        stack nav
  * |   |-- index          main screen
  * |   |-- Profile        profile screen, modal
  * |   |-- (Chat)         dynamic, own `_layout`
- * 
- * TODO: reconsider how to further wrap components
- * underneath store provider. Provider (below) is
- * expecting a slot or children tags.
  */
 export default function RootLayout() {
   return (
