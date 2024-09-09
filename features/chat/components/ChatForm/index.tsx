@@ -2,6 +2,7 @@ import { useState } from "react";
 import { NativeSyntheticEvent, Text, TextInput, TextInputContentSizeChangeEventData, TouchableOpacity, View } from "react-native";
 import { SCF } from "./ChatForm.styles";
 import Wrapper from "@/components/Wrapper";
+import { reduxDispatch } from "@/types/reduxHooks";
 
 /**
  * Steps for handling message PUTs
@@ -15,8 +16,11 @@ import Wrapper from "@/components/Wrapper";
  * 
  */
 export default function ChatForm() {
-  const [text, setText] = useState<string>('');
+  const [loading, setLoading]         = useState<boolean>(false);
+  const [text, setText]               = useState<string>('');
   const [inputHeight, setInputHeight] = useState<number>(0);
+
+  const dispatch = reduxDispatch();
 
   const handleContentSizeChange = (event: NativeSyntheticEvent<TextInputContentSizeChangeEventData>) => {
     setInputHeight(event.nativeEvent.contentSize.height);
