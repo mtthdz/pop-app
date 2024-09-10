@@ -27,8 +27,25 @@ export class RoomList {
     this.tail = null;
   }
 
+  
   // methods
-  roomSort() {};
+  private sortTimestamps(rooms: RoomNodeParams[]) {
+    return rooms.sort((a, b) => {
+      return new Date(b.latestTimestamp).getTime() - new Date(a.latestTimestamp).getTime();
+    });
+  }
+  
+  private sortRooms(rooms: RoomNodeParams[]) {
+    const unreadRooms = rooms.filter(room => room.isUnread);
+    const readRooms = rooms.filter(room => !room.isUnread);
+  
+    const sortedUnreadRooms = this.sortTimestamps(unreadRooms);
+    const sortedReadRooms = this.sortTimestamps(readRooms);
+  
+
+    return [...sortedUnreadRooms, ...sortedReadRooms];
+  }
+
   roomAdd() {};
   roomUnread() {};
   roomRead() {};
