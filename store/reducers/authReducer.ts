@@ -1,8 +1,9 @@
 import { UserSession } from "@/types/userSession";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
-interface AuthReducer extends UserSession {}
+interface AuthState extends UserSession {}
 
-const initialState: AuthReducer = {
+const initialState: AuthState = {
   id: null,
   email: null,
   access_token: null,
@@ -12,33 +13,35 @@ const initialState: AuthReducer = {
   error: null,
 };
 
-// TODO: type the reducer action
-// TODO: implement a retry function on `AUTH_ERROR`
-const authReducer = (state = initialState, action: any): AuthReducer => {
-  switch (action.type) {
-    case 'AUTH_SIGN_UP':
-    case 'AUTH_SIGN_IN':
+const authSlice = createSlice({
+  name: 'auth',
+  initialState,
+  reducers: {
+    signIn(state, action: PayloadAction<UserSession>) {
       return {
         ...state,
         ...action.payload,
         error: null,
       };
-
-    case 'AUTH_SIGN_OUT':
+    },
+    signUp(state, action: PayloadAction<UserSession>) {
+      return {
+        ...state,
+        ...action.payload,
+        error: null,
+      };
+    },
+    signOut(state) {
       return {
         ...state,
         ...initialState,
       };
-
-    case 'AUTH_ERROR':
-      return {
-        ...state,
-        error: action.error,
-      };
-
-    default:
-      return state;
+    },
+    authError(state, action: PayloadAction<{ error: string }>) {
+      state.error = action.payload.error;
+    }
   }
-};
+});
 
-export default authReducer;
+export const { signIn, signUp, signOut, authError } = authSlice.actions;
+export default authSlice.reducer;
