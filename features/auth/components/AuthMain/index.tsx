@@ -5,7 +5,7 @@ import { reduxDispatch } from "@/types/reduxHooks";
 import { supabaseSignIn } from "../../api/supabaseSignIn";
 import { getUserMeta } from "@/features/user/api/getUserMeta";
 import { authSignIn } from "@/store/actions/authActions";
-import { userMetaAdd } from "@/store/actions/userMetaActions";
+import { userMetaAdd } from "@/store/actions/usermetaActions";
 import { router } from "expo-router";
 import { alertError } from "@/store/actions/alertActions";
 
