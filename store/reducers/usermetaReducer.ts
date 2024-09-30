@@ -1,4 +1,5 @@
 import { UserMeta } from "@/types/userMeta";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 interface UserMetaReducer extends UserMeta {}
 
@@ -11,33 +12,36 @@ const initialState: UserMetaReducer = {
   error: null,
 };
 
-// TODO: type the reducer action
-// TODO: implement a retry function on `USERMETA_ERROR`
-const userMetaReducer = (state = initialState, action: any): UserMetaReducer => {
-  switch (action.type) {
-    case 'USERMETA_ADD':
-    case 'USERMETA_UPDATE':
+// Create the slice
+const userMetaSlice = createSlice({
+  name: 'userMeta',
+  initialState,
+  reducers: {
+    userMetaAdd(state, action: PayloadAction<UserMeta>) {
       return {
         ...state,
         ...action.payload,
         error: null,
       };
-
-    case 'USERMETA_DELETE':
+    },
+    userMetaUpdate(state, action: PayloadAction<UserMeta>) {
+      return {
+        ...state,
+        ...action.payload,
+        error: null,
+      };
+    },
+    userMetaDelete(state) {
       return {
         ...state,
         ...initialState,
       };
-
-    case 'USERMETA_ERROR':
-      return {
-        ...state,
-        error: action.error,
-      };
-
-    default:
-      return state;
+    },
+    userMetaError(state, action: PayloadAction<{ error: string }>) {
+      state.error = action.payload.error;
+    }
   }
-};
+});
 
-export default userMetaReducer;
+export const { userMetaAdd, userMetaUpdate, userMetaDelete, userMetaError } = userMetaSlice.actions;
+export default userMetaSlice.reducer;

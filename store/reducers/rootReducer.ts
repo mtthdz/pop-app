@@ -4,11 +4,12 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import authReducer from './authReducer';
 import userMetaReducer from './usermetaReducer';
 import alertReducer from './alertReducer';
+import chatListReducer from './chatListReducer';
 
 const rootPersistConfig = {
   key: 'root',
   storage: AsyncStorage,
-  whitelist: ['auth', 'userMeta'],
+  whitelist: ['auth', 'userMeta', 'chatList'],
 };
 
 /**
@@ -19,7 +20,8 @@ const rootPersistConfig = {
 const rootReducer = combineReducers({
   auth: authReducer,
   userMeta: userMetaReducer,
-  alert: alertReducer
+  alert: alertReducer,
+  chatList: chatListReducer
 });
 
 export default persistReducer(rootPersistConfig, rootReducer);
